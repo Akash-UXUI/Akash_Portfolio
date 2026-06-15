@@ -1085,6 +1085,21 @@ img {
     color: var(--accent-cyan);
 }
 
+.toolkit-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 2rem 0;
+}
+
+.toolkit-subtitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+    font-family: var(--font-title);
+    letter-spacing: -0.01em;
+}
+
 /* ==========================================
    5. Selected Works Section
    ========================================== */
@@ -1758,9 +1773,8 @@ img {
 }
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3.5rem;
+    display: flex;
+    justify-content: center;
     margin-bottom: 6rem;
 }
 
@@ -1771,6 +1785,11 @@ img {
     padding: 3rem;
     backdrop-filter: blur(var(--card-blur));
     -webkit-backdrop-filter: blur(var(--card-blur));
+}
+
+.about-grid .bio-card {
+    max-width: 750px;
+    width: 100%;
 }
 
 .about-title {
