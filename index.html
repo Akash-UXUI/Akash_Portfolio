@@ -25,7 +25,7 @@
         rel="stylesheet">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=1.3">
+    <link rel="stylesheet" href="styles.css?v=1.4">
 
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -52,7 +52,7 @@
             <nav class="nav-links" id="navLinks">
                 <a href="#work" class="nav-link" id="linkWork">Works</a>
                 <a href="#playground" class="nav-link" id="linkPlayground">Playground</a>
-                <a href="#about" class="nav-link" id="linkAbout">About</a>
+                <a href="#gallery" class="nav-link" id="linkGallery">Gallery</a>
                 <a href="#contact" class="nav-link" id="linkContact">Contact</a>
             </nav>
 
@@ -515,62 +515,168 @@
             </div>
         </section>
 
-        <!-- About & Process Section -->
-        <section class="about-section" id="about">
-            <div class="about-container container">
-                <div class="about-grid">
-                    <!-- Bio card -->
-                    <div class="about-card bio-card">
-                        <span class="section-tagline">My Philosophy</span>
-                        <h2 class="about-title">Hi, I'm Akash.</h2>
-                        <p class="about-bio">
-                            I am a Product & UX/UI Designer who sits at the intersection of business strategy, user
-                            psychology, and visual crafts. Over the past 5 years, I have worked with start-ups and tech
-                            teams to distill highly complex workflows into intuitive, clean interface models.
-                        </p>
-                        <p class="about-bio">
-                            I believe design shouldn't just look pretty; it should solve real business metrics. I design
-                            systems with high fidelity, detailed motion curves, and clean architectures.
-                        </p>
-                        <div class="about-socials">
-                            <a href="#" class="social-link" aria-label="Figma Profile"><i data-lucide="figma"></i></a>
-                            <a href="#" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-                            <a href="#" class="social-link" aria-label="Dribbble"><i data-lucide="dribbble"></i></a>
-                            <a href="#" class="social-link" aria-label="GitHub"><i data-lucide="github"></i></a>
+        <!-- Project Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-container container">
+                <span class="section-tagline">Visual Explorations</span>
+                <h2 class="section-title">Concept & Design Archive</h2>
+                
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-wrapper">
+                            <div class="gallery-placeholder">
+                                <div class="placeholder-ui-box">
+                                    <div class="ui-bone-header">
+                                        <div class="ui-bone-logo"></div>
+                                        <div class="ui-bone-avatar"></div>
+                                    </div>
+                                    <div class="ui-bone-line"></div>
+                                    <div class="ui-bone-line short"></div>
+                                    <div class="ui-bone-line accent"></div>
+                                    <div class="ui-bone-grid">
+                                        <div class="ui-bone-card"></div>
+                                        <div class="ui-bone-card"></div>
+                                        <div class="ui-bone-card"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- User can add real image later: 
+                            <img src="assets/gallery-proj1.png" alt="Project Mockup" class="gallery-img">
+                            -->
+                            <div class="gallery-overlay">
+                                <span class="gallery-item-category">SaaS Dashboard</span>
+                                <h4 class="gallery-item-title">Analytics Portal</h4>
+                                <i data-lucide="arrow-up-right" class="gallery-arrow"></i>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-wrapper">
+                            <div class="gallery-placeholder">
+                                <div class="placeholder-ui-box" style="border-radius: 24px; width: 65%; height: 75%;">
+                                    <div class="ui-bone-header" style="border: none;">
+                                        <div class="ui-bone-avatar" style="width: 24px; height: 24px; background: var(--accent-cyan); opacity: 0.5;"></div>
+                                        <div class="ui-bone-logo" style="width: 45px; background: rgba(255,255,255,0.08);"></div>
+                                    </div>
+                                    <div class="ui-bone-line" style="height: 10px; background: rgba(255,255,255,0.08);"></div>
+                                    <div class="ui-bone-line short" style="height: 8px; width: 80%;"></div>
+                                    <div class="ui-bone-line" style="margin-top: auto; height: 35px; border-radius: 8px; background: var(--accent-cyan); opacity: 0.15; border: 1px solid rgba(6,182,212,0.2);"></div>
+                                </div>
+                            </div>
+                            <div class="gallery-overlay">
+                                <span class="gallery-item-category">Mobile UX</span>
+                                <h4 class="gallery-item-title">Habit Tracker App</h4>
+                                <i data-lucide="arrow-up-right" class="gallery-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-wrapper">
+                            <div class="gallery-placeholder">
+                                <div class="placeholder-ui-box">
+                                    <div class="ui-bone-header">
+                                        <div class="ui-bone-logo" style="background: var(--accent-magenta); opacity: 0.6;"></div>
+                                        <div class="ui-bone-logo" style="width: 20px;"></div>
+                                    </div>
+                                    <div class="ui-bone-line" style="background: rgba(255,255,255,0.12);"></div>
+                                    <div class="ui-bone-line accent" style="background: var(--accent-magenta);"></div>
+                                    <div class="ui-bone-grid" style="grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                                        <div class="ui-bone-card" style="height: 25px;"></div>
+                                        <div class="ui-bone-card" style="height: 25px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallery-overlay">
+                                <span class="gallery-item-category">Web3 / Crypto</span>
+                                <h4 class="gallery-item-title">NFT Marketplace</h4>
+                                <i data-lucide="arrow-up-right" class="gallery-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 4 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-wrapper">
+                            <div class="gallery-placeholder">
+                                <div class="placeholder-ui-box">
+                                    <div class="ui-bone-header">
+                                        <div class="ui-bone-avatar"></div>
+                                        <div class="ui-bone-line" style="width: 50%; margin-left: 0.5rem; margin-right: auto; height: 8px;"></div>
+                                    </div>
+                                    <div class="ui-bone-line short"></div>
+                                    <div class="ui-bone-line"></div>
+                                    <div class="ui-bone-line accent" style="width: 70%; background: var(--accent-indigo);"></div>
+                                </div>
+                            </div>
+                            <div class="gallery-overlay">
+                                <span class="gallery-item-category">AI UI Design</span>
+                                <h4 class="gallery-item-title">Copilot Assistant</h4>
+                                <i data-lucide="arrow-up-right" class="gallery-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 5 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-wrapper">
+                            <div class="gallery-placeholder">
+                                <div class="placeholder-ui-box" style="width: 80%;">
+                                    <div class="ui-bone-header">
+                                        <div class="ui-bone-logo" style="width: 40px; background: var(--accent-cyan); opacity: 0.5;"></div>
+                                        <div class="ui-bone-logo" style="width: 15px;"></div>
+                                    </div>
+                                    <div class="ui-bone-line"></div>
+                                    <div class="ui-bone-grid" style="grid-template-columns: 1fr; gap: 0.4rem;">
+                                        <div class="ui-bone-card" style="height: 12px;"></div>
+                                        <div class="ui-bone-card" style="height: 12px;"></div>
+                                        <div class="ui-bone-card" style="height: 12px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallery-overlay">
+                                <span class="gallery-item-category">Fintech SaaS</span>
+                                <h4 class="gallery-item-title">Invoice Manager</h4>
+                                <i data-lucide="arrow-up-right" class="gallery-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 6 -->
+                    <div class="gallery-item">
+                        <div class="gallery-img-wrapper">
+                            <div class="gallery-placeholder">
+                                <div class="placeholder-ui-box">
+                                    <div class="ui-bone-header" style="border: none;">
+                                        <div class="ui-bone-logo" style="width: 25px;"></div>
+                                    </div>
+                                    <div class="ui-bone-line accent" style="width: 55%; background: var(--theme-accent);"></div>
+                                    <div class="ui-bone-line"></div>
+                                    <div class="ui-bone-grid" style="grid-template-columns: 1fr 1fr;">
+                                        <div class="ui-bone-card" style="height: 30px; border-radius: 50px;"></div>
+                                        <div class="ui-bone-card" style="height: 30px; border-radius: 50px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallery-overlay">
+                                <span class="gallery-item-category">E-Commerce</span>
+                                <h4 class="gallery-item-title">Fashion Store flow</h4>
+                                <i data-lucide="arrow-up-right" class="gallery-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Process flow steps -->
-                <div class="process-wrapper">
-                    <h3 class="process-title-main">My Design Workflow</h3>
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <div class="step-num">01</div>
-                            <h4>Discover & Research</h4>
-                            <p>Diving into analytics, conducting user interviews, and researching competitor models to
-                                gather actionable UX insights.</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-num">02</div>
-                            <h4>Define & Wireframe</h4>
-                            <p>Mapping information architecture, building user flows, and wireframing user steps to
-                                establish optimal flows.</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-num">03</div>
-                            <h4>UI Design & Mockups</h4>
-                            <p>Crafting gorgeous glassmorphic widgets, defining design system tokens, and implementing
-                                high-fidelity graphics.</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-num">04</div>
-                            <h4>Prototype & Test</h4>
-                            <p>Building rich micro-interactions, doing validation tests, and collaborating with
-                                developers to ensure pixel-perfect release.</p>
-                        </div>
-                    </div>
+                <!-- View Projects CTA (Navigates to Behance) -->
+                <div class="gallery-cta">
+                    <a href="https://www.behance.net/akashchourasiya31" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary" id="btnGalleryBehance">
+                        View Projects <i data-lucide="external-link"></i>
+                    </a>
                 </div>
             </div>
         </section>
