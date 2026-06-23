@@ -1559,212 +1559,6 @@ img {
 }
 
 /* ==========================================
-   7. Interactive UX Playground Section
-   ========================================== */
-.playground-section {
-    padding: 8rem 0;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    position: relative;
-    z-index: 2;
-}
-
-.playground-container {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-}
-
-.playground-intro {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.section-desc {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-}
-
-.playground-controls {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-}
-
-.control-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.control-group label {
-    font-family: var(--font-title);
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    display: flex;
-    justify-content: space-between;
-}
-
-.control-group label code {
-    color: var(--text-muted);
-}
-
-/* Theme accent selector colors */
-.color-options {
-    display: flex;
-    gap: 0.8rem;
-}
-
-.color-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    cursor: pointer;
-    transition: var(--transition-bounce);
-}
-
-.color-btn.active {
-    border-color: #ffffff;
-    transform: scale(1.15);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-/* Custom Sliders */
-.custom-slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 6px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.08);
-    outline: none;
-    transition: var(--transition-fast);
-}
-
-.custom-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--theme-accent);
-    cursor: pointer;
-    border: 2px solid #ffffff;
-    box-shadow: 0 0 10px var(--theme-accent-glow);
-    transition: var(--transition-bounce);
-}
-
-.custom-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    background: #ffffff;
-}
-
-/* Custom Select */
-.custom-select {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    color: var(--text-primary);
-    padding: 0.8rem 1rem;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-}
-
-.custom-select:focus {
-    border-color: var(--theme-accent);
-    box-shadow: 0 0 15px var(--theme-accent-glow);
-}
-
-/* Preview Card Panel */
-.playground-preview-pane {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-}
-
-.sandbox-card {
-    width: 100%;
-    max-width: 380px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--card-radius);
-    backdrop-filter: blur(var(--card-blur));
-    -webkit-backdrop-filter: blur(var(--card-blur));
-    padding: 2.2rem;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 5;
-    transition: var(--card-radius) 0.3s ease, var(--card-blur) 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-.sandbox-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.8rem;
-}
-
-.sandbox-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    font-weight: 500;
-}
-
-.sandbox-badge-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--theme-accent);
-    border-radius: 50%;
-}
-
-.sandbox-icon {
-    color: var(--theme-accent);
-}
-
-.sandbox-card-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.sandbox-card-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.sandbox-footer {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.playground-background-decor {
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--theme-accent) 0%, transparent 70%);
-    opacity: 0.15;
-    filter: blur(40px);
-    z-index: 2;
-    transition: var(--transition-smooth);
-}
-
-/* ==========================================
    7. Gallery Section
    ========================================== */
 .gallery-section {
@@ -2708,11 +2502,6 @@ img {
         aspect-ratio: 16/9;
     }
     
-    .playground-container {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-    
     .about-grid {
         grid-template-columns: 1fr;
     }
@@ -2848,4 +2637,118 @@ img {
         position: relative;
         top: 0;
     }
+}
+
+/* ==========================================
+   11. Dark & Light Theme Variables & Toggle Button
+   ========================================== */
+html.light-theme {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --card-bg: rgba(15, 23, 42, 0.02);
+    --card-border: rgba(15, 23, 42, 0.06);
+}
+
+/* Light Theme tweaks */
+html.light-theme .bg-grid {
+    background-image: 
+        linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+}
+
+html.light-theme .glow-blob {
+    opacity: 0.12;
+}
+
+html.light-theme .navbar {
+    background: rgba(248, 250, 252, 0.7);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+html.light-theme .navbar.scrolled {
+    background: rgba(248, 250, 252, 0.9);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+html.light-theme .modal-content {
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 40px 100px rgba(15, 23, 42, 0.12);
+}
+
+html.light-theme ::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.15);
+}
+
+html.light-theme .timeline-node {
+    background: #f1f5f9;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .timeline-line {
+    background: rgba(15, 23, 42, 0.06);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: 0;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.theme-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2px;
+}
+
+html.light-theme .theme-toggle-btn {
+    border-color: rgba(15, 23, 42, 0.08);
+    color: var(--text-secondary);
+}
+
+html.light-theme .theme-toggle-btn:hover {
+    color: var(--text-primary);
+    background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.15);
+}
+
+/* Toggle SVG logic */
+.theme-toggle-btn .sun-icon {
+    display: block;
+}
+.theme-toggle-btn .moon-icon {
+    display: none;
+}
+
+html.light-theme .theme-toggle-btn .sun-icon {
+    display: none;
+}
+html.light-theme .theme-toggle-btn .moon-icon {
+    display: block;
+}
+
+/* Navbar actions wrapper */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
 }

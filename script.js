@@ -111,113 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. Interactive UX Playground Widget
-    const radiusSlider = document.getElementById('radiusSlider');
-    const radiusVal = document.getElementById('radiusVal');
-    const blurSlider = document.getElementById('blurSlider');
-    const blurVal = document.getElementById('blurVal');
-    const colorBtns = document.querySelectorAll('.color-btn');
-    const hoverSelect = document.getElementById('hoverSelect');
-    const sandboxCard = document.getElementById('sandboxCard');
-
-    // Radius Slider Change
-    if (radiusSlider && radiusVal && sandboxCard) {
-        radiusSlider.addEventListener('input', (e) => {
-            const val = e.target.value;
-            radiusVal.textContent = `${val}px`;
-            sandboxCard.style.setProperty('--card-radius', `${val}px`);
+    // 6. Light / Dark Theme Toggle Button
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isLight = document.documentElement.classList.toggle('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
-    }
-
-    // Blur Slider Change
-    if (blurSlider && blurVal && sandboxCard) {
-        blurSlider.addEventListener('input', (e) => {
-            const val = e.target.value;
-            blurVal.textContent = `${val}px`;
-            sandboxCard.style.setProperty('--card-blur', `${val}px`);
-        });
-    }
-
-    // Theme Color Changes
-    colorBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            colorBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const colorName = btn.getAttribute('data-color');
-            let colorHex = '#6366f1';
-            let glowColor = 'rgba(99, 102, 241, 0.25)';
-
-            if (colorName === 'indigo') {
-                colorHex = '#6366f1';
-                glowColor = 'rgba(99, 102, 241, 0.25)';
-            } else if (colorName === 'cyan') {
-                colorHex = '#06b6d4';
-                glowColor = 'rgba(6, 182, 212, 0.25)';
-            } else if (colorName === 'magenta') {
-                colorHex = '#d946ef';
-                glowColor = 'rgba(217, 70, 239, 0.25)';
-            }
-
-            // Apply style overrides to document
-            document.documentElement.style.setProperty('--theme-accent', colorHex);
-            document.documentElement.style.setProperty('--theme-accent-glow', glowColor);
-
-            // Trigger ripple effect visual on cursor
-            if (cursorDot) {
-                cursorDot.style.transform = 'translate(-50%, -50%) scale(4)';
-                setTimeout(() => {
-                    cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
-                }, 200);
-            }
-        });
-    });
-
-    // Custom Interaction Style
-    if (hoverSelect && sandboxCard) {
-        hoverSelect.addEventListener('change', (e) => {
-            const mode = e.target.value;
-            
-            // Reset transition styles first
-            sandboxCard.style.transform = 'none';
-            sandboxCard.style.boxShadow = '0 30px 60px rgba(0,0,0,0.3)';
-            
-            // Remove previous interaction handlers
-            sandboxCard.onmouseenter = null;
-            sandboxCard.onmouseleave = null;
-
-            if (mode === 'glow') {
-                sandboxCard.onmouseenter = () => {
-                    sandboxCard.style.boxShadow = '0 30px 60px rgba(0,0,0,0.4), 0 0 40px var(--theme-accent-glow)';
-                    sandboxCard.style.borderColor = 'var(--theme-accent)';
-                };
-                sandboxCard.onmouseleave = () => {
-                    sandboxCard.style.boxShadow = '0 30px 60px rgba(0,0,0,0.3)';
-                    sandboxCard.style.borderColor = 'var(--card-border)';
-                };
-            } else if (mode === 'lift') {
-                sandboxCard.onmouseenter = () => {
-                    sandboxCard.style.transform = 'translateY(-15px)';
-                    sandboxCard.style.boxShadow = '0 45px 80px rgba(0,0,0,0.5)';
-                };
-                sandboxCard.onmouseleave = () => {
-                    sandboxCard.style.transform = 'translateY(0)';
-                    sandboxCard.style.boxShadow = '0 30px 60px rgba(0,0,0,0.3)';
-                };
-            } else if (mode === 'scale') {
-                sandboxCard.onmouseenter = () => {
-                    sandboxCard.style.transform = 'scale(1.05)';
-                    sandboxCard.style.boxShadow = '0 35px 70px rgba(0,0,0,0.4)';
-                };
-                sandboxCard.onmouseleave = () => {
-                    sandboxCard.style.transform = 'scale(1)';
-                    sandboxCard.style.boxShadow = '0 30px 60px rgba(0,0,0,0.3)';
-                };
-            }
-        });
-        
-        // Trigger default glow bind
-        hoverSelect.dispatchEvent(new Event('change'));
     }
 
     // 7. Dynamic Local Time Clock

@@ -2,11 +2,21 @@
 <html lang="en">
 
 <head>
-    <!-- Redirect to Live Site if opened locally via file system -->
+    <!-- Redirect to Live Site if opened locally via file system & Initialize Theme -->
     <script>
         if (window.location.protocol === 'file:') {
             window.location.href = 'https://akash-uxui.github.io/Akash_Portfolio/';
         }
+        
+        // Theme initialization
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.add('light-theme');
+            } else {
+                document.documentElement.classList.remove('light-theme');
+            }
+        })();
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,15 +60,21 @@
             </a>
 
             <nav class="nav-links" id="navLinks">
-                <a href="#work" class="nav-link" id="linkWork">Works</a>
-                <a href="#playground" class="nav-link" id="linkPlayground">Playground</a>
-                <a href="#gallery" class="nav-link" id="linkGallery">Gallery</a>
-                <a href="#contact" class="nav-link" id="linkContact">Contact</a>
+                <a href="#case-study" class="nav-link" id="linkWork">Case Study</a>
+                <a href="#projects" class="nav-link" id="linkGallery">Projects</a>
+                <a href="#experience" class="nav-link" id="linkContact">Experience</a>
             </nav>
 
-            <div class="nav-cta">
-                <a href="#contact" class="btn btn-outline" id="headerCtaBtn">Let's talk <i
-                        data-lucide="arrow-up-right"></i></a>
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Dark/Light Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <div class="nav-cta">
+                    <a href="#contact" class="btn btn-outline" id="headerCtaBtn">Let's talk <i
+                            data-lucide="arrow-up-right"></i></a>
+                </div>
             </div>
 
             <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle navigation menu">
@@ -268,7 +284,7 @@
         </section>
 
         <!-- Selected Works Section -->
-        <section class="work-section" id="work">
+        <section class="work-section" id="case-study">
             <div class="section-header container">
                 <span class="section-tagline">Selected Portfolio</span>
                 <h2 class="section-title">Crafting solutions for complex systems</h2>
@@ -441,82 +457,8 @@
             </div>
         </section>
 
-        <!-- Interactive UX Playground Section -->
-        <section class="playground-section" id="playground">
-            <div class="playground-container container">
-                <div class="playground-intro">
-                    <span class="section-tagline">Live Prototyping</span>
-                    <h2 class="section-title">Design System Sandbox</h2>
-                    <p class="section-desc">
-                        A dynamic tool demonstrating how minor design token alterations can completely reshape the voice
-                        and experience of a digital product. Interact with the variables below to test them on the
-                        preview component in real-time.
-                    </p>
-
-                    <!-- Playground Controls -->
-                    <div class="playground-controls">
-                        <div class="control-group">
-                            <label for="themeSelector">Theme Accent Profile</label>
-                            <div class="color-options" id="themeSelector">
-                                <button class="color-btn active" data-color="indigo"
-                                    style="background-color: var(--accent-indigo);" aria-label="Indigo Theme"></button>
-                                <button class="color-btn" data-color="cyan"
-                                    style="background-color: var(--accent-cyan);" aria-label="Cyan Theme"></button>
-                                <button class="color-btn" data-color="magenta"
-                                    style="background-color: var(--accent-magenta);"
-                                    aria-label="Magenta Theme"></button>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="radiusSlider">Border Radius (Token: <code>--card-radius</code>): <span
-                                    id="radiusVal">16px</span></label>
-                            <input type="range" id="radiusSlider" min="0" max="32" value="16" class="custom-slider">
-                        </div>
-
-                        <div class="control-group">
-                            <label for="blurSlider">Backdrop Blur (Token: <code>--card-blur</code>): <span
-                                    id="blurVal">16px</span></label>
-                            <input type="range" id="blurSlider" min="0" max="40" value="16" class="custom-slider">
-                        </div>
-
-                        <div class="control-group">
-                            <label for="hoverSelect">Micro-Interaction Mode</label>
-                            <select id="hoverSelect" class="custom-select">
-                                <option value="glow">Neon Glow Overlay</option>
-                                <option value="lift">Vertical Float Lift</option>
-                                <option value="scale">Bouncy Uniform Scale</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="playground-preview-pane">
-                    <!-- Sandbox Card Preview -->
-                    <div class="sandbox-card" id="sandboxCard">
-                        <div class="sandbox-header">
-                            <div class="sandbox-badge">
-                                <span class="sandbox-badge-dot"></span>Interactive Live Preview
-                            </div>
-                            <i data-lucide="sparkles" class="sandbox-icon"></i>
-                        </div>
-                        <h3 class="sandbox-card-title">Token Explorer</h3>
-                        <p class="sandbox-card-text">
-                            Notice how changes in border radius, theme variables, and backdrop blur affect the visual
-                            hierarchy, accessibility contrast, and sensory emotion of this panel.
-                        </p>
-                        <div class="sandbox-footer">
-                            <button class="btn btn-primary" id="sandboxCta">Press Me <i
-                                    data-lucide="mouse-pointer"></i></button>
-                        </div>
-                    </div>
-                    <div class="playground-background-decor"></div>
-                </div>
-            </div>
-        </section>
-
         <!-- Project Gallery Section -->
-        <section class="gallery-section" id="gallery">
+        <section class="gallery-section" id="projects">
             <div class="gallery-container container">
                 <div class="gallery-header">
                     <h2 class="gallery-title-main">PROJECTS</h2>
