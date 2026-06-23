@@ -461,4 +461,105 @@ document.addEventListener('DOMContentLoaded', () => {
             glowBlob3.style.transform = `translate(${xOffset * 0.5}px, ${-yOffset * 0.5}px)`;
         });
     }
+
+    // 11. Interactive Figma Mockup: Design/Dev Mode, Hotspots, and Multiplayer Cursor
+    const btnDesignMode = document.getElementById('btnDesignMode');
+    const btnDevMode = document.getElementById('btnDevMode');
+    const figmaWorkspace = document.getElementById('figmaWorkspace');
+    const figmaCanvas = document.getElementById('figmaCanvas');
+    const figmaCursor = document.getElementById('figmaCursor');
+    const hotspotDetailsCard = document.getElementById('hotspotDetailsCard');
+    const hotspotTitle = document.getElementById('hotspotTitle');
+    const hotspotDesc = document.getElementById('hotspotDesc');
+    const hotspotCloseBtn = document.getElementById('hotspotCloseBtn');
+    const hotspots = document.querySelectorAll('.canvas-hotspot');
+
+    if (btnDesignMode && btnDevMode && figmaWorkspace) {
+        // Toggle to Design Mode
+        btnDesignMode.addEventListener('click', () => {
+            btnDesignMode.classList.add('active');
+            btnDevMode.classList.remove('active');
+            figmaWorkspace.classList.remove('dev-mode-active');
+            if (hotspotDetailsCard) hotspotDetailsCard.classList.remove('active');
+        });
+
+        // Toggle to Dev Mode
+        btnDevMode.addEventListener('click', () => {
+            btnDevMode.classList.add('active');
+            btnDesignMode.classList.remove('active');
+            figmaWorkspace.classList.add('dev-mode-active');
+            if (hotspotDetailsCard) hotspotDetailsCard.classList.remove('active');
+        });
+    }
+
+    // Hotspot Data
+    const hotspotData = {
+        "1": {
+            title: "Instant Send Onboarding",
+            desc: "<strong>Challenge:</strong> High user drop-off on transfer confirmations.<br><strong>UX Resolution:</strong> Implemented swift gesture-based swipe and success micro-feedback.<br><strong>Metric:</strong> Increased completed transactions by 22%."
+        },
+        "2": {
+            title: "Dynamic Payment Hub",
+            desc: "<strong>Challenge:</strong> Cluttered banking expense layouts.<br><strong>UX Resolution:</strong> Designed auto-categorizing graphical budget summary cards.<br><strong>Metric:</strong> Boosted app engagement by 18%."
+        },
+        "3": {
+            title: "Smart Animate Flow",
+            desc: "<strong>Challenge:</strong> High page-transition user friction.<br><strong>UX Resolution:</strong> Structured animation bezier tokens to map 1:1 with standard native iOS spring curves.<br><strong>Metric:</strong> Reduced perceived loading delay by 30%."
+        }
+    };
+
+    if (hotspots && hotspotDetailsCard && hotspotTitle && hotspotDesc) {
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('click', (e) => {
+                e.stopPropagation(); // Avoid triggering any canvas clicks
+                const id = hotspot.getAttribute('data-hotspot');
+                const data = hotspotData[id];
+                if (data) {
+                    hotspotTitle.innerHTML = data.title;
+                    hotspotDesc.innerHTML = data.desc;
+                    hotspotDetailsCard.classList.add('active');
+                }
+            });
+        });
+
+        if (hotspotCloseBtn) {
+            hotspotCloseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                hotspotDetailsCard.classList.remove('active');
+            });
+        }
+
+        // Close details if user clicks anywhere else on the canvas
+        if (figmaCanvas) {
+            figmaCanvas.addEventListener('click', (e) => {
+                if (!e.target.closest('.canvas-hotspot') && !e.target.closest('#hotspotDetailsCard')) {
+                    hotspotDetailsCard.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    // Multiplayer Cursor Tracking
+    if (!isTouchDevice && figmaCanvas && figmaCursor) {
+        figmaCanvas.addEventListener('mousemove', (e) => {
+            figmaCanvas.classList.add('mouse-active');
+            const rect = figmaCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Constrain coordinates within canvas
+            const posX = Math.max(0, Math.min(x, rect.width));
+            const posY = Math.max(0, Math.min(y, rect.height));
+
+            figmaCursor.style.left = `${posX}px`;
+            figmaCursor.style.top = `${posY}px`;
+        });
+
+        figmaCanvas.addEventListener('mouseleave', () => {
+            figmaCanvas.classList.remove('mouse-active');
+            // Reset to default styling (which allows CSS animation to take back control)
+            figmaCursor.style.left = '';
+            figmaCursor.style.top = '';
+        });
+    }
 });
