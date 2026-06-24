@@ -2727,7 +2727,7 @@ img {
     
     .timeline-line {
         top: 0;
-        left: 20px;
+        left: 50px;
         width: 2px;
         height: 100%;
         transform: none;
@@ -2767,10 +2767,10 @@ img {
     .timeline-content::after {
         content: '';
         position: absolute;
-        left: -3rem !important;
+        left: -25px !important;
         top: 2rem !important;
         bottom: auto !important;
-        width: 3rem !important;
+        width: 25px !important;
         height: 2px !important;
         background: linear-gradient(to right, var(--theme-accent), var(--card-border)) !important;
         transform: translateY(-50%) !important;
