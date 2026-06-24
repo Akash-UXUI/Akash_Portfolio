@@ -421,6 +421,10 @@ document.addEventListener('DOMContentLoaded', () => {
         projectCards.forEach(card => {
             card.addEventListener('click', () => {
                 const projectId = card.getAttribute('data-project');
+                if (projectId && (projectId.startsWith('http://') || projectId.startsWith('https://'))) {
+                    window.open(projectId, '_blank', 'noopener,noreferrer');
+                    return;
+                }
                 openCaseStudy(projectId);
             });
         });

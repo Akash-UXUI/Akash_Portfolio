@@ -2078,6 +2078,9 @@ img {
 .gradient-marketplace { background: linear-gradient(135deg, #220f24 0%, #0f0610 100%); }
 .gradient-marketplace::before { background: #d946ef; }
 
+.gradient-sstech { background: linear-gradient(135deg, #0e1e38 0%, #050a12 100%); }
+.gradient-sstech::before { background: #2563eb; }
+
 .card-hover-overlay {
     position: absolute;
     inset: 0;
