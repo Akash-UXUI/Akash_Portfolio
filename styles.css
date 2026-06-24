@@ -2754,6 +2754,16 @@ img {
         position: relative;
     }
     
+    .item-top .timeline-content,
+    .item-bottom .timeline-content {
+        position: relative;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        transform: none;
+        max-width: 100%;
+    }
+    
     .timeline-content::after {
         content: '';
         position: absolute;
@@ -2894,7 +2904,20 @@ img {
     }
     
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+    
+    .gallery-header {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+        text-align: center;
     }
     
     .section-title {
@@ -2952,6 +2975,29 @@ img {
     }
 }
 
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    .hero-glass-card {
+        padding: 0.8rem;
+    }
+    .figma-workspace-mock {
+        gap: 0.5rem;
+        padding: 0.5rem;
+        height: 220px;
+    }
+    .canvas-screen {
+        width: 75px;
+    }
+    .canvas-connector {
+        width: 40px;
+    }
+}
+
 /* ==========================================
    11. Dark & Light Theme Variables & Toggle Button
    ========================================== */
@@ -3002,6 +3048,30 @@ html.light-theme .timeline-node {
 
 html.light-theme .timeline-line {
     background: rgba(15, 23, 42, 0.06);
+}
+
+/* Light Theme Form Elements visibility */
+html.light-theme .form-group input, 
+html.light-theme .form-group textarea {
+    background: rgba(15, 23, 42, 0.02);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    color: var(--text-primary);
+}
+
+html.light-theme .form-group input:focus, 
+html.light-theme .form-group textarea:focus {
+    background: #ffffff;
+    border-color: var(--theme-accent);
+}
+
+html.light-theme .radio-content {
+    background: rgba(15, 23, 42, 0.01);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+html.light-theme .radio-card input:checked + .radio-content {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: var(--theme-accent);
 }
 
 /* Theme Toggle Button */
