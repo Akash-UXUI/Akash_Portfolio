@@ -1879,6 +1879,74 @@ img {
     overflow: hidden;
 }
 
+/* Slider Controls & Arrows */
+.marquee-controls-wrapper {
+    position: absolute;
+    top: 55%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.slider-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(13, 17, 29, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slider-arrow:hover {
+    background: var(--theme-accent);
+    color: #ffffff;
+    border-color: var(--theme-accent);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--theme-accent-glow);
+}
+
+.slider-arrow i {
+    width: 20px;
+    height: 20px;
+}
+
+html.light-theme .slider-arrow {
+    background: rgba(248, 250, 252, 0.8);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+    color: var(--text-primary);
+}
+
+html.light-theme .slider-arrow:hover {
+    background: var(--theme-accent);
+    color: #ffffff;
+    border-color: var(--theme-accent);
+}
+
+@media (max-width: 768px) {
+    .marquee-controls-wrapper {
+        padding: 0 1rem;
+    }
+    .slider-arrow {
+        width: 44px;
+        height: 44px;
+    }
+}
+
 .gallery-container {
     margin-bottom: 3.5rem;
 }
@@ -1942,8 +2010,14 @@ img {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     position: relative;
-    overflow: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding: 1.5rem 0;
+}
+
+.marquee-container::-webkit-scrollbar {
+    display: none;
 }
 
 .marquee-track {
@@ -1955,16 +2029,6 @@ img {
     display: flex;
     gap: 2.2rem;
     padding: 0 1.1rem;
-    animation: scrollMarquee 65s linear infinite;
-}
-
-.marquee-container:hover .marquee-list {
-    animation-play-state: paused;
-}
-
-@keyframes scrollMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
 }
 
 .marquee-card {

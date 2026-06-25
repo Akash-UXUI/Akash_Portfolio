@@ -566,4 +566,99 @@ document.addEventListener('DOMContentLoaded', () => {
             figmaCursor.style.top = '';
         });
     }
+
+    // 12. Project Gallery Marquee Scroll Controls (Autoplay + Arrow Navigation)
+    const marqueeContainer = document.querySelector('.marquee-container');
+    const marqueeTrack = document.querySelector('.marquee-track');
+    const prevBtn = document.getElementById('prevSlideBtn');
+    const nextBtn = document.getElementById('nextSlideBtn');
+
+    if (marqueeContainer && marqueeTrack) {
+        const marqueeList = marqueeTrack.querySelector('.marquee-list');
+        let listWidth = marqueeList.getBoundingClientRect().width;
+        let scrollSpeed = 0.8; // px per frame
+        let isPaused = false;
+        let scrollPos = 0;
+        let resumeTimeout = null;
+
+        // Recalculate list width on resize
+        window.addEventListener('resize', () => {
+            listWidth = marqueeList.getBoundingClientRect().width;
+        });
+
+        const step = () => {
+            if (!isPaused) {
+                scrollPos += scrollSpeed;
+                if (scrollPos >= listWidth) {
+                    scrollPos = 0;
+                }
+                marqueeContainer.scrollLeft = scrollPos;
+            } else {
+                // Keep scrollPos updated with manual scrolls
+                scrollPos = marqueeContainer.scrollLeft;
+            }
+            requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+
+        // Pause on mouse hover, resume on leave
+        marqueeContainer.addEventListener('mouseenter', () => {
+            isPaused = true;
+        });
+        marqueeContainer.addEventListener('mouseleave', () => {
+            if (!resumeTimeout) {
+                isPaused = false;
+            }
+        });
+
+        // Touch support for mobile: pause autoplay on scroll
+        marqueeContainer.addEventListener('touchstart', () => {
+            isPaused = true;
+        });
+        marqueeContainer.addEventListener('touchend', () => {
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            resumeTimeout = setTimeout(() => {
+                isPaused = false;
+                resumeTimeout = null;
+            }, 3000);
+        });
+
+        // Manual button controls
+        const slideDistance = 350; // Scroll amount on click
+
+        const handleManualScroll = (direction) => {
+            isPaused = true;
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+
+            const currentScroll = marqueeContainer.scrollLeft;
+            let targetScroll = direction === 'next' ? currentScroll + slideDistance : currentScroll - slideDistance;
+
+            // Handle boundary wrapping for manual scrolling
+            if (targetScroll >= listWidth * 2 - marqueeContainer.clientWidth) {
+                targetScroll = targetScroll - listWidth;
+                marqueeContainer.scrollLeft = marqueeContainer.scrollLeft - listWidth;
+            } else if (targetScroll < 0) {
+                targetScroll = targetScroll + listWidth;
+                marqueeContainer.scrollLeft = marqueeContainer.scrollLeft + listWidth;
+            }
+
+            marqueeContainer.scrollTo({
+                left: targetScroll,
+                behavior: 'smooth'
+            });
+
+            // Resume autoplay after 4 seconds of inactivity
+            resumeTimeout = setTimeout(() => {
+                isPaused = false;
+                resumeTimeout = null;
+            }, 4000);
+        };
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => handleManualScroll('next'));
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => handleManualScroll('prev'));
+        }
+    }
 });
