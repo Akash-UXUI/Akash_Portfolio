@@ -2000,6 +2000,17 @@ img {
     border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.marquee-card:hover .card-img-wrapper img {
+    transform: scale(1.05);
+}
+
 .card-placeholder {
     width: 100%;
     height: 100%;
