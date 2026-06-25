@@ -581,15 +581,20 @@ document.addEventListener('DOMContentLoaded', () => {
         let scrollPos = 0;
         let resumeTimeout = null;
 
-        // Recalculate list width on resize
-        window.addEventListener('resize', () => {
+        // Recalculate list width on resize and window load
+        const updateListWidth = () => {
             listWidth = marqueeList.getBoundingClientRect().width;
-        });
+        };
+        window.addEventListener('resize', updateListWidth);
+        window.addEventListener('load', updateListWidth);
 
         const step = () => {
+            if (listWidth === 0) {
+                listWidth = marqueeList.getBoundingClientRect().width;
+            }
             if (!isPaused) {
                 scrollPos += scrollSpeed;
-                if (scrollPos >= listWidth) {
+                if (listWidth > 0 && scrollPos >= listWidth) {
                     scrollPos = 0;
                 }
                 marqueeContainer.scrollLeft = scrollPos;
@@ -630,16 +635,22 @@ document.addEventListener('DOMContentLoaded', () => {
             isPaused = true;
             if (resumeTimeout) clearTimeout(resumeTimeout);
 
+            if (listWidth === 0) {
+                listWidth = marqueeList.getBoundingClientRect().width;
+            }
+
             const currentScroll = marqueeContainer.scrollLeft;
             let targetScroll = direction === 'next' ? currentScroll + slideDistance : currentScroll - slideDistance;
 
-            // Handle boundary wrapping for manual scrolling
-            if (targetScroll >= listWidth * 2 - marqueeContainer.clientWidth) {
-                targetScroll = targetScroll - listWidth;
-                marqueeContainer.scrollLeft = marqueeContainer.scrollLeft - listWidth;
-            } else if (targetScroll < 0) {
-                targetScroll = targetScroll + listWidth;
-                marqueeContainer.scrollLeft = marqueeContainer.scrollLeft + listWidth;
+            if (listWidth > 0) {
+                // Handle boundary wrapping for manual scrolling
+                if (targetScroll >= listWidth * 2 - marqueeContainer.clientWidth) {
+                    targetScroll = targetScroll - listWidth;
+                    marqueeContainer.scrollLeft = marqueeContainer.scrollLeft - listWidth;
+                } else if (targetScroll < 0) {
+                    targetScroll = targetScroll + listWidth;
+                    marqueeContainer.scrollLeft = marqueeContainer.scrollLeft + listWidth;
+                }
             }
 
             marqueeContainer.scrollTo({

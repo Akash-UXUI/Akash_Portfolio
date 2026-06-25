@@ -1882,7 +1882,7 @@ img {
 /* Slider Controls & Arrows */
 .marquee-controls-wrapper {
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 0;
     right: 0;
     transform: translateY(-50%);
@@ -1919,7 +1919,8 @@ img {
     box-shadow: 0 0 20px var(--theme-accent-glow);
 }
 
-.slider-arrow i {
+.slider-arrow i,
+.slider-arrow svg {
     width: 20px;
     height: 20px;
 }
@@ -2006,9 +2007,15 @@ html.light-theme .slider-arrow:hover {
     100% { transform: scale(1.3); opacity: 1; }
 }
 
-.marquee-container {
+.marquee-relative-wrapper {
+    position: relative;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    overflow: visible;
+}
+
+.marquee-container {
+    width: 100%;
     position: relative;
     overflow-x: auto;
     scrollbar-width: none;
