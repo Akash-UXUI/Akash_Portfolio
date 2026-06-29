@@ -639,9 +639,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 listWidth = marqueeList.getBoundingClientRect().width;
             }
 
-            const currentScroll = marqueeContainer.scrollLeft;
-            // Inverted for natural physical drag direction: Left moves content left (+), Right moves content right (-)
-            let targetScroll = direction === 'next' ? currentScroll - slideDistance : currentScroll + slideDistance;
+            // Standard scroll direction: Right button scrolls right (+), Left button scrolls left (-)
+            let targetScroll = direction === 'next' ? currentScroll + slideDistance : currentScroll - slideDistance;
 
             if (listWidth > 0) {
                 // Handle boundary wrapping for manual scrolling
