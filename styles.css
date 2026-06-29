@@ -2471,9 +2471,70 @@ html.light-theme .slider-arrow:hover {
     opacity: 1;
 }
 
-.btn-submit {
+.form-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
     margin-top: 1rem;
     width: 100%;
+}
+
+.btn-submit {
+    flex: 1;
+    min-width: 200px;
+    width: auto;
+}
+
+.btn-whatsapp {
+    flex: 1;
+    min-width: 200px;
+    background: transparent;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    color: #ffffff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-whatsapp:hover {
+    border-color: #25d366;
+    color: #25d366;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-whatsapp:hover svg {
+    transform: scale(1.1);
+}
+
+/* Light theme overrides */
+body.light-theme .btn-whatsapp {
+    color: var(--text-primary);
+    border-color: rgba(18, 140, 126, 0.4);
+}
+
+body.light-theme .btn-whatsapp:hover {
+    color: #128c7e;
+    border-color: #128c7e;
+    box-shadow: 0 0 15px rgba(18, 140, 126, 0.15);
+}
+
+@media (max-width: 576px) {
+    .form-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .btn-submit,
+    .btn-whatsapp {
+        width: 100%;
+        min-width: 100%;
+    }
 }
 
 /* Success Card */
