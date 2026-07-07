@@ -143,20 +143,20 @@ img {
 .btn-secondary {
     background: rgba(255, 255, 255, 0.03);
     color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-2px);
 }
 
 .btn-outline {
     background: transparent;
     color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .btn-outline:hover {
@@ -3117,6 +3117,133 @@ html.light-theme .bg-grid {
     background-image: 
         linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+}
+
+/* Light Theme Button and Interactive Elements Visibility */
+html.light-theme .btn-secondary {
+    background: rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    color: var(--text-primary);
+}
+
+html.light-theme .btn-secondary:hover {
+    background: rgba(15, 23, 42, 0.08);
+    border-color: rgba(15, 23, 42, 0.35);
+}
+
+html.light-theme .btn-outline {
+    border: 1px solid rgba(15, 23, 42, 0.25);
+    color: var(--text-primary);
+}
+
+html.light-theme .btn-outline:hover {
+    border-color: var(--theme-accent);
+    background: rgba(99, 102, 241, 0.04);
+}
+
+/* Figma Mockup Interactive Elements - High Contrast Light Theme */
+html.light-theme .figma-workspace-mock {
+    background: rgba(15, 23, 42, 0.03);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .figma-mode-toggle {
+    background: rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+html.light-theme .mode-btn {
+    color: var(--text-secondary);
+}
+
+html.light-theme .mode-btn:hover {
+    background: rgba(15, 23, 42, 0.08);
+    color: var(--text-primary);
+}
+
+html.light-theme .mode-btn.active {
+    background: var(--theme-accent);
+    color: #ffffff;
+    border-color: var(--theme-accent);
+}
+
+html.light-theme .figma-toolbar {
+    background: rgba(15, 23, 42, 0.02);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .tool-btn {
+    color: var(--text-secondary);
+}
+
+html.light-theme .tool-btn:hover,
+html.light-theme .tool-btn.active {
+    background: rgba(15, 23, 42, 0.08);
+    color: var(--theme-accent);
+}
+
+html.light-theme .figma-canvas {
+    background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+    background-color: rgba(15, 23, 42, 0.01);
+}
+
+html.light-theme .canvas-screen {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+html.light-theme .canvas-screen:hover {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.22);
+}
+
+html.light-theme .canvas-screen .screen-header {
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .mock-avatar {
+    background: rgba(15, 23, 42, 0.12);
+}
+
+html.light-theme .mock-input-field {
+    background: rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .mock-nav-row span {
+    background: rgba(15, 23, 42, 0.12);
+}
+
+html.light-theme .mock-stat-boxes span {
+    background: rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .connector-badge {
+    color: var(--theme-accent);
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+html.light-theme .figma-inspect-panel {
+    background: #ffffff;
+    border-left: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+html.light-theme .figma-inspect-panel .panel-header {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+html.light-theme .figma-inspect-panel .section-label {
+    color: var(--text-muted);
+}
+
+html.light-theme .figma-inspect-panel .panel-property {
+    color: var(--text-secondary);
+}
+
+html.light-theme .figma-inspect-panel .panel-property span {
+    color: var(--text-primary);
 }
 
 html.light-theme .glow-blob {
