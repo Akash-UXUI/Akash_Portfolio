@@ -551,10 +551,18 @@
         <section class="gallery-section" id="projects">
             <div class="gallery-container container">
                 <div class="gallery-header">
-                    <h2 class="gallery-title-main">PROJECTS</h2>
-                    <a href="https://www.behance.net/akashchourasiya31" target="_blank" rel="noopener noreferrer" class="btn-view-all">
-                        View all projects <span class="dot-indicator"></span>
-                    </a>
+                    <button class="slider-arrow arrow-left" id="prevSlideBtn" aria-label="Previous projects">
+                        <i data-lucide="arrow-left"></i>
+                    </button>
+                    <div class="gallery-header-content">
+                        <h2 class="gallery-title-main">PROJECTS</h2>
+                        <a href="https://www.behance.net/akashchourasiya31" target="_blank" rel="noopener noreferrer" class="btn-view-all">
+                            View all projects <span class="dot-indicator"></span>
+                        </a>
+                    </div>
+                    <button class="slider-arrow arrow-right" id="nextSlideBtn" aria-label="Next projects">
+                        <i data-lucide="arrow-right"></i>
+                    </button>
                 </div>
             </div>
 
@@ -855,15 +863,7 @@
                 </div>
             </div>
 
-            <!-- Project Slider Navigation Controls (Centered on the track) -->
-            <div class="marquee-controls-wrapper">
-                <button class="slider-arrow arrow-left" id="prevSlideBtn" aria-label="Previous projects">
-                    <i data-lucide="arrow-left"></i>
-                </button>
-                <button class="slider-arrow arrow-right" id="nextSlideBtn" aria-label="Next projects">
-                    <i data-lucide="arrow-right"></i>
-                </button>
-            </div>
+            <!-- Project Slider Navigation Controls moved to the gallery header -->
         </div>
     </section>
 
