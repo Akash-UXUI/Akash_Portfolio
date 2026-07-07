@@ -1445,10 +1445,9 @@ img {
 }
 
 .work-filters {
-    display: flex;
-    gap: 0.8rem;
+    display: inline-flex;
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 0.4rem;
     border-radius: 100px;
     backdrop-filter: blur(10px);
@@ -1456,7 +1455,7 @@ img {
 
 .filter-btn {
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     color: var(--text-secondary);
     font-family: var(--font-title);
     font-weight: 500;
@@ -1469,10 +1468,13 @@ img {
 
 .filter-btn:hover {
     color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .filter-btn.active {
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
     color: var(--text-primary);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
@@ -2672,8 +2674,22 @@ html.light-theme .slider-arrow:hover {
 .cs-meta {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem 0;
+}
+
+.cs-meta-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cs-meta-item:not(:first-child) {
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 2.5rem;
 }
 
 .cs-meta-item span {
@@ -2688,6 +2704,19 @@ html.light-theme .slider-arrow:hover {
 .cs-meta-item p {
     font-weight: 500;
     color: var(--text-primary);
+}
+
+/* Styled tags for Case Study */
+.cs-tags .tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--theme-accent);
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .cs-main-img {
@@ -2709,6 +2738,11 @@ html.light-theme .slider-arrow:hover {
     grid-template-columns: 1fr 1.8fr;
     gap: 3rem;
     margin-bottom: 4rem;
+}
+
+.cs-grid > div {
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 3rem;
 }
 
 .cs-grid h3 {
@@ -3037,6 +3071,25 @@ html.light-theme .slider-arrow:hover {
     .cs-meta {
         grid-template-columns: 1fr;
         gap: 1.2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 1.2rem 0;
+    }
+    
+    html.light-theme .cs-meta {
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+    
+    .cs-meta-item:not(:first-child) {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1rem;
+    }
+    
+    html.light-theme .cs-meta-item:not(:first-child) {
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
     }
     
     .cs-section {
@@ -3046,6 +3099,11 @@ html.light-theme .slider-arrow:hover {
     .cs-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .cs-grid > div {
+        border-left: none !important;
+        padding-left: 0 !important;
     }
     
     .cs-grid h3 {
@@ -3363,4 +3421,28 @@ html.light-theme .theme-toggle-btn .moon-icon {
     display: flex;
     align-items: center;
     gap: 1.2rem;
+}
+
+/* Light Theme Case Study Overrides */
+html.light-theme .cs-hero {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .cs-meta {
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .cs-meta-item:not(:first-child) {
+    border-left: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .cs-grid > div {
+    border-left: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+html.light-theme .cs-tags .tag {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.25);
+    color: var(--theme-accent);
 }
