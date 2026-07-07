@@ -2297,7 +2297,8 @@ html.light-theme .slider-arrow:hover {
     gap: 1.2rem;
 }
 
-.detail-item i {
+.detail-item i,
+.detail-item .detail-icon-wrapper {
     width: 50px;
     height: 50px;
     border-radius: 12px;
@@ -2307,6 +2308,12 @@ html.light-theme .slider-arrow:hover {
     align-items: center;
     justify-content: center;
     color: var(--theme-accent);
+    flex-shrink: 0;
+}
+
+.detail-item .detail-icon-wrapper svg {
+    width: 24px;
+    height: 24px;
 }
 
 .detail-item div span {
@@ -2471,70 +2478,9 @@ html.light-theme .slider-arrow:hover {
     opacity: 1;
 }
 
-.form-actions {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+.btn-submit {
     margin-top: 1rem;
     width: 100%;
-}
-
-.btn-submit {
-    flex: 1;
-    min-width: 200px;
-    width: auto;
-}
-
-.btn-whatsapp {
-    flex: 1;
-    min-width: 200px;
-    background: transparent;
-    border: 1px solid rgba(37, 211, 102, 0.3);
-    color: #ffffff;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-whatsapp:hover {
-    border-color: #25d366;
-    color: #25d366;
-    box-shadow: 0 0 15px rgba(37, 211, 102, 0.15);
-    transform: translateY(-2px);
-}
-
-.btn-whatsapp svg {
-    transition: transform 0.3s ease;
-}
-
-.btn-whatsapp:hover svg {
-    transform: scale(1.1);
-}
-
-/* Light theme overrides */
-body.light-theme .btn-whatsapp {
-    color: var(--text-primary);
-    border-color: rgba(18, 140, 126, 0.4);
-}
-
-body.light-theme .btn-whatsapp:hover {
-    color: #128c7e;
-    border-color: #128c7e;
-    box-shadow: 0 0 15px rgba(18, 140, 126, 0.15);
-}
-
-@media (max-width: 576px) {
-    .form-actions {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .btn-submit,
-    .btn-whatsapp {
-        width: 100%;
-        min-width: 100%;
-    }
 }
 
 /* Success Card */
@@ -3213,6 +3159,12 @@ html.light-theme .radio-content {
 html.light-theme .radio-card input:checked + .radio-content {
     background: rgba(99, 102, 241, 0.08);
     border-color: var(--theme-accent);
+}
+
+html.light-theme .detail-item i,
+html.light-theme .detail-item .detail-icon-wrapper {
+    background: rgba(15, 23, 42, 0.02);
+    border-color: rgba(15, 23, 42, 0.06);
 }
 
 /* Theme Toggle Button */

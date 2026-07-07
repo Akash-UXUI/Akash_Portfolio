@@ -230,23 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const whatsappBtn = document.getElementById('whatsappSubmitBtn');
-        if (whatsappBtn) {
-            whatsappBtn.addEventListener('click', () => {
-                if (validateForm()) {
-                    const name = document.getElementById('formName').value.trim();
-                    const email = document.getElementById('formEmail').value.trim();
-                    const projectType = document.querySelector('input[name="projectType"]:checked').value;
-                    const message = document.getElementById('formMessage').value.trim();
-
-                    const text = `Hello Akash,\n\nI'm *${name}*.\nI want to discuss a *${projectType}* project with you.\n\n*Email:* ${email}\n*Message:* ${message}`;
-                    const encodedText = encodeURIComponent(text);
-                    const whatsappUrl = `https://wa.me/917067025341?text=${encodedText}`;
-
-                    window.open(whatsappUrl, '_blank');
-                }
-            });
-        }
 
         if (resetFormBtn) {
             resetFormBtn.addEventListener('click', () => {
