@@ -3056,24 +3056,46 @@ html.light-theme .slider-arrow:hover {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 1.8rem;
+        font-size: clamp(1.4rem, 7.5vw, 1.8rem);
     }
     .hero-subtitle {
         font-size: 0.9rem;
     }
+    .hero-visual {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 1.5rem 0.5rem;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+    .hero-visual::-webkit-scrollbar {
+        height: 4px;
+    }
+    .hero-visual::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.02);
+    }
+    .hero-visual::-webkit-scrollbar-thumb {
+        background: var(--theme-accent);
+        border-radius: 2px;
+    }
     .hero-glass-card {
-        padding: 0.8rem;
+        width: 440px;
+        min-width: 440px;
+        margin: 0 auto;
+        flex-shrink: 0;
+        padding: 1.5rem;
     }
     .figma-workspace-mock {
-        gap: 0.5rem;
-        padding: 0.5rem;
-        height: 220px;
+        gap: 1rem;
+        padding: 0.8rem;
+        height: 240px;
     }
     .canvas-screen {
-        width: 75px;
+        width: 90px;
     }
     .canvas-connector {
-        width: 40px;
+        width: 60px;
     }
 }
 
