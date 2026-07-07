@@ -2295,22 +2295,9 @@ html.light-theme .slider-arrow:hover {
 }
 
 .detail-item i,
-.detail-item .detail-icon-wrapper {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.detail-item svg.lucide {
     color: var(--theme-accent);
     flex-shrink: 0;
-}
-
-.detail-item .detail-icon-wrapper svg {
-    width: 24px;
-    height: 24px;
 }
 
 .detail-item div span {
@@ -3166,11 +3153,6 @@ html.light-theme .radio-card input:checked + .radio-content {
     border-color: var(--theme-accent);
 }
 
-html.light-theme .detail-item i,
-html.light-theme .detail-item .detail-icon-wrapper {
-    background: rgba(15, 23, 42, 0.02);
-    border-color: rgba(15, 23, 42, 0.06);
-}
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
