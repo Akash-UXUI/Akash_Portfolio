@@ -482,6 +482,40 @@ img {
     color: var(--text-secondary);
 }
 
+.hero-avatar-wrapper {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--theme-accent) 0%, var(--accent-cyan) 100%);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.22);
+    margin-bottom: 1.5rem;
+    position: relative;
+    animation: float-avatar 6s ease-in-out infinite;
+}
+
+html.light-theme .hero-avatar-wrapper {
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.12);
+}
+
+.hero-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg-primary);
+    background: var(--bg-secondary);
+}
+
+@keyframes float-avatar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 .hero-pretitle {
     font-size: 1.6rem;
     font-weight: 600;

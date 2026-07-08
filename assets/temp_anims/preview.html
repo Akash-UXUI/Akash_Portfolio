@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Loop Previews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131a26;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --theme-accent: #6366f1;
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-radius: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 4rem 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .anim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .anim-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: var(--card-radius);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anim-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.1);
+        }
+
+        .video-wrapper {
+            aspect-ratio: 1;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .anim-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .anim-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .anim-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            padding: 0.6rem 1rem;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-copy:hover {
+            background: var(--theme-accent);
+            border-color: var(--theme-accent);
+        }
+
+        .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Animation Loop Previews</h1>
+            <p class="subtitle">Bhai, maine Framer site ki saare animations local path par download kar di hain. Aap apne browser mein yeh page open karke animations check karo aur select karo!</p>
+        </header>
+
+        <div class="anim-grid">
+            <!-- Card 1 -->
+            <div class="anim-card">
+                <span class="badge">187 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim1.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 1</h3>
+                    <div class="anim-meta">
+                        <span>File: anim1.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim1.mp4')">Select anim1.mp4</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="anim-card">
+                <span class="badge">267 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim2.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 2</h3>
+                    <div class="anim-meta">
+                        <span>File: anim2.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim2.mp4')">Select anim2.mp4</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="anim-card">
+                <span class="badge">190 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim3.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 3</h3>
+                    <div class="anim-meta">
+                        <span>File: anim3.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim3.mp4')">Select anim3.mp4</button>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="anim-card">
+                <span class="badge">127 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim4.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 4</h3>
+                    <div class="anim-meta">
+                        <span>File: anim4.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim4.mp4')">Select anim4.mp4</button>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="anim-card">
+                <span class="badge">560 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim5.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 5</h3>
+                    <div class="anim-meta">
+                        <span>File: anim5.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim5.mp4')">Select anim5.mp4</button>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="anim-card">
+                <span class="badge">1.27 MB</span>
+                <div class="video-wrapper">
+                    <video src="anim6.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 6</h3>
+                    <div class="anim-meta">
+                        <span>File: anim6.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim6.mp4')">Select anim6.mp4</button>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="anim-card">
+                <span class="badge">350 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim7.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 7</h3>
+                    <div class="anim-meta">
+                        <span>File: anim7.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim7.mp4')">Select anim7.mp4</button>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="anim-card">
+                <span class="badge">137 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim8.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 8</h3>
+                    <div class="anim-meta">
+                        <span>File: anim8.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim8.mp4')">Select anim8.mp4</button>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="anim-card">
+                <span class="badge">707 KB</span>
+                <div class="video-wrapper">
+                    <video src="anim9.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="anim-info">
+                    <h3 class="anim-title">Animation 9</h3>
+                    <div class="anim-meta">
+                        <span>File: anim9.mp4</span>
+                    </div>
+                </div>
+                <button class="btn-copy" onclick="copyName('anim9.mp4')">Select anim9.mp4</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyName(filename) {
+            navigator.clipboard.writeText(filename);
+            alert(filename + ' copied to clipboard! Bhai, ab mujhe batana konsi add karni hai.');
+        }
+    </script>
+</body>
+</html>
