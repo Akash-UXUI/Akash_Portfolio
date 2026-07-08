@@ -2353,7 +2353,7 @@ html.light-theme .slider-arrow:hover {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0.6rem 0.9rem;
     border-radius: 10px;
@@ -2364,31 +2364,38 @@ html.light-theme .slider-arrow:hover {
 }
 
 html.light-theme .tool-card {
-    background: #ffffff;
+    background: transparent;
     border: 1px solid rgba(15, 23, 42, 0.1);
     color: var(--text-primary);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    box-shadow: none;
 }
 
 .tool-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.2);
     color: var(--text-primary);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 html.light-theme .tool-card:hover {
-    background: #ffffff;
+    background: rgba(15, 23, 42, 0.02);
     border-color: rgba(15, 23, 42, 0.18);
-    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
 }
 
-.tool-card i {
+.tool-card i,
+.tool-card .tool-svg {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
+    transition: var(--transition-fast);
 }
+
+.tool-card:hover i,
+.tool-card:hover .tool-svg {
+    transform: scale(1.1);
+}
+
+
 
 /* Tool Icon Colors */
 .tool-icon-figma { color: #f24e1e !important; }
