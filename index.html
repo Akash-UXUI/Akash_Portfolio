@@ -90,10 +90,6 @@
         <section class="hero-section" id="hero">
             <div class="hero-container">
                 <div class="hero-content">
-                    <div class="hero-avatar-wrapper animate-fade-in">
-                        <img src="assets/akash_avatar.png" alt="Akash Chourasiya 3D Avatar" class="hero-avatar">
-                    </div>
-
                     <div class="badge-container animate-fade-in">
                         <span class="pulse-icon"></span>
                         <span class="badge-text">Available for select projects</span>
@@ -117,145 +113,23 @@
                 </div>
 
                 <div class="hero-visual animate-fade-in-delayed">
-                    <!-- Glassmorphic Mockup Hero Visual - Figma/User Flow Workspace -->
-                    <div class="hero-glass-card" id="heroVisualCard">
-                        <div class="card-header-dots">
-                            <span class="dot-red"></span>
-                            <span class="dot-yellow"></span>
-                            <span class="dot-green"></span>
+                    <!-- Premium 3D Character Avatar Presentation -->
+                    <div class="hero-avatar-3d-card" id="heroVisualCard">
+                        <div class="avatar-3d-glow"></div>
+                        <img src="assets/akash_working.png" alt="Akash Chourasiya 3D Avatar working on laptop" class="avatar-3d-img">
+                        
+                        <!-- Floating badges representing skills -->
+                        <div class="floating-badge badge-figma" id="floatBadge1">
+                            <i data-lucide="figma"></i>
+                            <span>Figma Pro</span>
                         </div>
-                        <div class="hero-card-inner">
-                            <div class="visual-header">
-                                <span class="card-title-mock"><i data-lucide="layout" class="mock-header-icon"></i>
-                                    user_flow_v2.fig</span>
-                                <div class="figma-mode-toggle">
-                                    <button class="mode-btn active" id="btnDesignMode">Design</button>
-                                    <button class="mode-btn" id="btnDevMode"><i data-lucide="code" class="btn-code-icon"></i> Dev</button>
-                                </div>
-                            </div>
-                            <div class="visual-body">
-                                <div class="figma-workspace-mock" id="figmaWorkspace">
-                                    <!-- Sidebar Tools Mockup -->
-                                    <div class="figma-toolbar">
-                                        <button class="tool-btn active" title="Move Tool"><i
-                                                data-lucide="mouse-pointer-2"></i></button>
-                                        <button class="tool-btn" title="Frame Tool"><i
-                                                data-lucide="columns-3"></i></button>
-                                        <button class="tool-btn" title="Rectangle Tool"><i
-                                                data-lucide="square"></i></button>
-                                        <button class="tool-btn" title="Pen Tool"><i
-                                                data-lucide="pen-tool"></i></button>
-                                        <button class="tool-btn" title="Text Tool"><i data-lucide="type"></i></button>
-                                        <button class="tool-btn" title="Components"><i
-                                                data-lucide="component"></i></button>
-                                    </div>
-
-                                    <!-- Canvas Area with User Flow -->
-                                    <div class="figma-canvas" id="figmaCanvas">
-                                        <!-- Screen 1: Login/Entry (Fintech Wallet sending UI mockup) -->
-                                        <div class="canvas-screen screen-left" id="figmaScreenLeft">
-                                            <div class="screen-header">Wallet Send</div>
-                                            <div class="screen-content">
-                                                <div class="mock-avatar"></div>
-                                                <div class="mock-input-field"></div>
-                                                <div class="mock-input-field"></div>
-                                                <div class="mock-button-field"></div>
-                                            </div>
-                                            <!-- Hotspot 1 -->
-                                            <div class="canvas-hotspot hotspot-entry" data-hotspot="1">
-                                                <span class="hotspot-pulse"></span>
-                                            </div>
-                                        </div>
-
-                                        <!-- User Flow Connector Line -->
-                                        <div class="canvas-connector">
-                                            <svg viewBox="0 0 100 40" class="connector-line-svg">
-                                                <path d="M0,20 C40,20 60,10 100,10" fill="none"
-                                                    stroke="var(--theme-accent)" stroke-width="2" stroke-dasharray="4 4"
-                                                    class="animated-dash"></path>
-                                                <circle cx="100" cy="10" r="3" fill="var(--theme-accent)"></circle>
-                                            </svg>
-                                            <span class="connector-badge">Smart Animate</span>
-                                            <!-- Hotspot 3 -->
-                                            <div class="canvas-hotspot hotspot-connector" data-hotspot="3">
-                                                <span class="hotspot-pulse"></span>
-                                            </div>
-                                        </div>
-
-                                        <!-- Screen 2: Dashboard/Success (Fintech Wallet payment hub mockup) -->
-                                        <div class="canvas-screen screen-right" id="figmaScreenRight">
-                                            <div class="screen-header">Payment Hub</div>
-                                            <div class="screen-content">
-                                                <div class="mock-nav-row">
-                                                    <span></span><span></span>
-                                                </div>
-                                                <div class="mock-stat-boxes">
-                                                    <span></span><span></span>
-                                                </div>
-                                                <div class="mock-graph-bars">
-                                                    <span style="height: 50%;"></span>
-                                                    <span style="height: 85%;"></span>
-                                                    <span style="height: 35%;"></span>
-                                                </div>
-                                            </div>
-                                            <!-- Hotspot 2 -->
-                                            <div class="canvas-hotspot hotspot-hub" data-hotspot="2">
-                                                <span class="hotspot-pulse"></span>
-                                            </div>
-                                        </div>
-
-                                        <!-- Designer Collaborator Cursor -->
-                                        <div class="figma-collaborator-cursor" id="figmaCursor">
-                                            <i data-lucide="mouse-pointer-2" class="cursor-pointer-icon"></i>
-                                            <span class="cursor-label">Akash</span>
-                                        </div>
-
-                                        <!-- UX Hotspot Details Overlay Card -->
-                                        <div class="figma-hotspot-details" id="hotspotDetailsCard">
-                                            <button class="hotspot-close-btn" id="hotspotCloseBtn" aria-label="Close insights">
-                                                <i data-lucide="x"></i>
-                                            </button>
-                                            <span class="details-badge">UX Metric Insights</span>
-                                            <h4 class="details-title" id="hotspotTitle">Onboarding Optimization</h4>
-                                            <p class="details-desc" id="hotspotDesc">Description about design decisions.</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Inspect Code Panel (Dev Mode) -->
-                                    <div class="figma-inspect-panel" id="figmaInspectPanel">
-                                        <div class="panel-header">Inspect: Wallet Card</div>
-                                        <div class="panel-section">
-                                            <div class="section-label">Layout (Auto Layout)</div>
-                                            <div class="panel-property"><code>display: flex;</code></div>
-                                            <div class="panel-property"><code>flex-direction: column;</code></div>
-                                            <div class="panel-property"><code>padding: var(--token-p-lg);</code></div>
-                                            <div class="panel-property"><code>gap: var(--token-gap-md);</code></div>
-                                        </div>
-                                        <div class="panel-section">
-                                            <div class="section-label">Tokens (Styles)</div>
-                                            <div class="panel-property"><code>border-radius: var(--card-radius);</code></div>
-                                            <div class="panel-property"><code>background: var(--bg-secondary);</code></div>
-                                            <div class="panel-property"><code>border: 1px solid var(--card-border);</code></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="floating-badge badge-code" id="floatBadge2">
+                            <i data-lucide="code"></i>
+                            <span>UX Dev</span>
                         </div>
-                    </div>
-
-                    <!-- Small auxiliary cards for layering -->
-                    <div class="hero-floating-badge badge-1" id="floatBadge1">
-                        <i data-lucide="figma" class="icon-figma"></i>
-                        <div>
-                            <h4>Design Systems</h4>
-                            <p>Tokens & Auto-Layout</p>
-                        </div>
-                    </div>
-                    <div class="hero-floating-badge badge-2" id="floatBadge2">
-                        <i data-lucide="smartphone" class="icon-phone"></i>
-                        <div>
-                            <h4>UX Prototypes</h4>
-                            <p>Micro-interactions</p>
+                        <div class="floating-badge badge-sparkles" id="floatBadge3">
+                            <i data-lucide="sparkles"></i>
+                            <span>AI + UX</span>
                         </div>
                     </div>
                 </div>
