@@ -1526,21 +1526,13 @@ html.light-theme .floating-badge {
     padding: 8rem 0;
     position: relative;
     z-index: 2;
-    overflow: hidden;
 }
 
 .section-header {
     margin-bottom: 4rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.header-controls-area {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .section-tagline {
@@ -1598,18 +1590,8 @@ html.light-theme .floating-badge {
 /* Work Grid and Cards */
 .work-grid {
     display: flex;
-    flex-direction: row !important;
-    gap: 2rem !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding: 2rem 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.work-grid::-webkit-scrollbar {
-    display: none;
+    flex-direction: column;
+    gap: 5.5rem; /* Spacious separation between case studies */
 }
 
 /* Base project card layout */
@@ -1627,11 +1609,6 @@ html.light-theme .floating-badge {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transition: var(--transition-smooth);
     cursor: pointer;
-    width: 85vw;
-    max-width: 950px;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    margin: 0;
 }
 
 .project-card:hover {
@@ -2423,16 +2400,20 @@ html.light-theme .tool-card:hover {
 /* Tool Icon Colors */
 .tool-icon-figma { color: #f24e1e !important; }
 .tool-icon-ai { color: #10b981 !important; }
+.tool-icon-claude { color: #cc9b7a !important; }
+.tool-icon-chatgpt { color: #10a37f !important; }
 .tool-icon-sketch { color: #f59e0b !important; }
-.tool-icon-framer { color: #00bdf1 !important; }
+.tool-icon-framer { color: #0055ff !important; }
 .tool-icon-adobe { color: #ff0000 !important; }
 .tool-icon-webflow { color: #4353ff !important; }
 .tool-icon-code { color: #3b82f6 !important; }
-.tool-icon-git { color: #f05032 !important; }
+.tool-icon-js { color: #F7DF1E !important; }
+.tool-icon-github { color: #ffffff !important; }
+html.light-theme .tool-icon-github { color: #000000 !important; }
 .tool-icon-maze { color: #ff385c !important; }
 .tool-icon-notion { color: #ffffff !important; }
 html.light-theme .tool-icon-notion { color: #000000 !important; }
-.tool-icon-workflow { color: #a855f7 !important; }
+.tool-icon-mockflow { color: #00a8ff !important; }
 .tool-icon-jira { color: #0052cc !important; }
 
 /* ==========================================
@@ -3083,18 +3064,14 @@ html.light-theme .tool-icon-notion { color: #000000 !important; }
     }
 
     .work-grid {
-        flex-direction: row !important;
-        gap: 1.5rem !important;
-        overflow-x: auto !important;
+        flex-direction: column;
+        gap: 3.5rem;
     }
     
     .project-card {
         grid-template-columns: 1fr;
         padding: 2.5rem 2rem;
         gap: 2rem;
-        width: 85vw !important;
-        flex-shrink: 0 !important;
-        scroll-snap-align: center !important;
     }
     
     .project-card.layout-text-left .project-img-wrapper,
@@ -3626,76 +3603,8 @@ html.light-theme .cs-tags .tag {
 }
 
 /* ==========================================
-   Selected Works Slider & Rotating Badge
+   Floating Circular Rotating WhatsApp Badge
    ========================================== */
-
-/* Slider Nav Arrows container */
-.slider-nav-arrows {
-    display: flex;
-    gap: 0.8rem;
-    margin-left: 2rem;
-}
-
-.slider-arrow {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-}
-
-html.light-theme .slider-arrow {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    color: var(--text-primary);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-}
-
-.slider-arrow:hover {
-    background: var(--theme-accent);
-    border-color: var(--theme-accent);
-    color: #ffffff !important;
-    transform: scale(1.05);
-}
-
-.slider-arrow i {
-    width: 20px;
-    height: 20px;
-}
-
-/* Scroll Progress Bar styling */
-.slider-progress-container {
-    height: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 2px;
-    margin-top: 3.5rem;
-    position: relative;
-    overflow: hidden;
-}
-
-html.light-theme .slider-progress-container {
-    background: rgba(15, 23, 42, 0.05);
-}
-
-.slider-progress-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background: var(--theme-accent);
-    box-shadow: 0 0 12px var(--theme-accent);
-    border-radius: 2px;
-    transition: width 0.1s ease-out;
-}
-
-/* Floating Circular Rotating WhatsApp Badge */
 .floating-contact-badge {
     position: fixed;
     bottom: 2rem;
@@ -3789,10 +3698,6 @@ html.light-theme .badge-text-path {
 }
 
 @media (max-width: 768px) {
-    .slider-nav-arrows {
-        display: none !important;
-    }
-    
     .floating-contact-badge {
         bottom: 1.5rem;
         right: 1.5rem;
@@ -3809,9 +3714,5 @@ html.light-theme .badge-text-path {
     .whatsapp-badge-svg {
         width: 17px;
         height: 17px;
-    }
-    
-    .slider-progress-container {
-        margin-top: 2rem;
     }
 }
