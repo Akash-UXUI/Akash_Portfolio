@@ -1526,13 +1526,21 @@ html.light-theme .floating-badge {
     padding: 8rem 0;
     position: relative;
     z-index: 2;
+    overflow: hidden;
 }
 
 .section-header {
     margin-bottom: 4rem;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.header-controls-area {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .section-tagline {
@@ -1590,8 +1598,18 @@ html.light-theme .floating-badge {
 /* Work Grid and Cards */
 .work-grid {
     display: flex;
-    flex-direction: column;
-    gap: 5.5rem; /* Spacious separation between case studies */
+    flex-direction: row !important;
+    gap: 2rem !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 2rem 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.work-grid::-webkit-scrollbar {
+    display: none;
 }
 
 /* Base project card layout */
@@ -1609,6 +1627,11 @@ html.light-theme .floating-badge {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transition: var(--transition-smooth);
     cursor: pointer;
+    width: 85vw;
+    max-width: 950px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    margin: 0;
 }
 
 .project-card:hover {
@@ -3060,14 +3083,18 @@ html.light-theme .tool-icon-notion { color: #000000 !important; }
     }
 
     .work-grid {
-        flex-direction: column;
-        gap: 3.5rem;
+        flex-direction: row !important;
+        gap: 1.5rem !important;
+        overflow-x: auto !important;
     }
     
     .project-card {
         grid-template-columns: 1fr;
         padding: 2.5rem 2rem;
         gap: 2rem;
+        width: 85vw !important;
+        flex-shrink: 0 !important;
+        scroll-snap-align: center !important;
     }
     
     .project-card.layout-text-left .project-img-wrapper,
@@ -3596,4 +3623,195 @@ html.light-theme .cs-tags .tag {
     background: rgba(99, 102, 241, 0.08);
     border-color: rgba(99, 102, 241, 0.25);
     color: var(--theme-accent);
+}
+
+/* ==========================================
+   Selected Works Slider & Rotating Badge
+   ========================================== */
+
+/* Slider Nav Arrows container */
+.slider-nav-arrows {
+    display: flex;
+    gap: 0.8rem;
+    margin-left: 2rem;
+}
+
+.slider-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+html.light-theme .slider-arrow {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.slider-arrow:hover {
+    background: var(--theme-accent);
+    border-color: var(--theme-accent);
+    color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+.slider-arrow i {
+    width: 20px;
+    height: 20px;
+}
+
+/* Scroll Progress Bar styling */
+.slider-progress-container {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    margin-top: 3.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+html.light-theme .slider-progress-container {
+    background: rgba(15, 23, 42, 0.05);
+}
+
+.slider-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--theme-accent);
+    box-shadow: 0 0 12px var(--theme-accent);
+    border-radius: 2px;
+    transition: width 0.1s ease-out;
+}
+
+/* Floating Circular Rotating WhatsApp Badge */
+.floating-contact-badge {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+.badge-circle-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 29, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+html.light-theme .badge-circle-wrap {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.badge-text-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: spin-badge 12s linear infinite;
+}
+
+.badge-text-path {
+    font-family: var(--font-title);
+    font-size: 8px;
+    font-weight: 700;
+    fill: var(--text-muted);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+html.light-theme .badge-text-path {
+    fill: var(--text-secondary);
+}
+
+.badge-center-icon {
+    position: relative;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-badge-svg {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    fill: #ffffff;
+}
+
+/* Hover States */
+.floating-contact-badge:hover {
+    transform: scale(1.08);
+}
+
+.floating-contact-badge:hover .badge-center-icon {
+    transform: scale(1.1);
+}
+
+@keyframes spin-badge {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .slider-nav-arrows {
+        display: none !important;
+    }
+    
+    .floating-contact-badge {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 75px;
+        height: 75px;
+    }
+    .badge-text-path {
+        font-size: 7px;
+    }
+    .badge-center-icon {
+        width: 32px;
+        height: 32px;
+    }
+    .whatsapp-badge-svg {
+        width: 17px;
+        height: 17px;
+    }
+    
+    .slider-progress-container {
+        margin-top: 2rem;
+    }
 }

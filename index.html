@@ -289,13 +289,27 @@
         <!-- Selected Works Section -->
         <section class="work-section" id="case-study">
             <div class="section-header container">
-                <span class="section-tagline">Selected Portfolio</span>
-                <h2 class="section-title">Crafting solutions for complex systems</h2>
+                <div class="header-text-area">
+                    <span class="section-tagline">Selected Portfolio</span>
+                    <h2 class="section-title">Crafting solutions for complex systems</h2>
+                </div>
 
-                <div class="work-filters" id="workFilters">
-                    <button class="filter-btn active" data-filter="all" id="filterAll">All Works</button>
-                    <button class="filter-btn" data-filter="web" id="filterWeb">Web & SaaS</button>
-                    <button class="filter-btn" data-filter="mobile" id="filterMobile">Mobile Apps</button>
+                <div class="header-controls-area">
+                    <div class="work-filters" id="workFilters">
+                        <button class="filter-btn active" data-filter="all" id="filterAll">All Works</button>
+                        <button class="filter-btn" data-filter="web" id="filterWeb">Web & SaaS</button>
+                        <button class="filter-btn" data-filter="mobile" id="filterMobile">Mobile Apps</button>
+                    </div>
+                    
+                    <!-- Slider Navigation Arrows -->
+                    <div class="slider-nav-arrows">
+                        <button class="slider-arrow arrow-prev" id="sliderPrev" aria-label="Previous Projects">
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+                        <button class="slider-arrow arrow-next" id="sliderNext" aria-label="Next Projects">
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -423,6 +437,11 @@
                         <img src="assets/SStech Website Image..png" alt="SSTech System Solutions Web Redesign Mockup" class="project-img">
                     </div>
                 </div>
+            </div>
+
+            <!-- Slider Scroll Progress Bar -->
+            <div class="slider-progress-container container">
+                <div class="slider-progress-bar" id="sliderProgressBar"></div>
             </div>
 
             <div class="work-more-cta">
@@ -838,10 +857,10 @@
                             </div>
                         </div>
                         <div class="detail-item">
-                            <i data-lucide="message-circle"></i>
+                            <i data-lucide="linkedin"></i>
                             <div>
-                                <span>WhatsApp</span>
-                                <a href="https://wa.me/917067025341" target="_blank" rel="noopener noreferrer">+91 70670 25341</a>
+                                <span>LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/akash-chourasiya-ux/" target="_blank" rel="noopener noreferrer">akash-chourasiya-ux</a>
                             </div>
                         </div>
                         <div class="detail-item">
@@ -954,6 +973,25 @@
             </div>
         </div>
     </div>
+
+    <!-- Floating Circular Rotating WhatsApp Badge -->
+    <a href="https://wa.me/917067025341" target="_blank" rel="noopener noreferrer" class="floating-contact-badge" id="floatingContactBadge" aria-label="Contact on WhatsApp">
+        <div class="badge-circle-wrap">
+            <svg viewBox="0 0 100 100" class="badge-text-svg">
+                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                <text>
+                    <textPath href="#circlePath" class="badge-text-path">
+                        • GET IN TOUCH • CHAT ON WHATSAPP • GET IN TOUCH • CHAT ON WHATSAPP
+                    </textPath>
+                </text>
+            </svg>
+            <div class="badge-center-icon">
+                <svg viewBox="0 0 24 24" class="whatsapp-badge-svg" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.45 5.535 0 10.026-4.437 10.03-9.873.002-2.63-1.013-5.105-2.859-6.955C16.7 1.93 14.23.917 11.59.917c-5.544 0-10.04 4.437-10.044 9.874-.001 2.012.52 3.98 1.505 5.685L2.016 21.9l5.631-1.468-.1-.082zm11.39-7.643c-.305-.153-1.805-.89-2.08-.99-.275-.099-.475-.148-.674.152-.2.3-.775.99-.95 1.19-.175.2-.35.225-.655.073-1.202-.603-2.102-1.053-2.922-2.456-.215-.369.215-.343.615-1.138.077-.154.038-.288-.019-.402-.057-.115-.475-1.144-.65-1.564-.17-.41-.358-.353-.49-.36-.125-.007-.27-.008-.415-.008-.145 0-.38.054-.58.272-.2.22-1.758 1.716-1.758 4.182s1.8 4.842 2.05 5.18c.25.34 3.543 5.412 8.583 7.584 1.2.516 2.137.825 2.87 1.058 1.207.382 2.307.33 3.178.2 1-.15 3.064-1.25 3.493-2.45.43-1.2.43-2.225.215-2.65-.215-.425-1-1.25-1.35-1.25z"/>
+                </svg>
+            </div>
+        </div>
+    </a>
 
     <!-- Scripts -->
     <script src="script.js"></script>

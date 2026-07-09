@@ -678,4 +678,69 @@ document.addEventListener('DOMContentLoaded', () => {
             prevBtn.addEventListener('click', () => handleManualScroll('prev'));
         }
     }
+
+    // 12. Selected Projects Horizontal Slider & Progress Bar
+    const workGrid = document.getElementById('workGrid');
+    const btnNext = document.getElementById('sliderNext');
+    const btnPrev = document.getElementById('sliderPrev');
+    const progressBar = document.getElementById('sliderProgressBar');
+
+    if (workGrid) {
+        // Scroll calculation helper
+        const getScrollAmount = () => {
+            const card = workGrid.querySelector('.project-card:not(.hide)');
+            if (card) {
+                const cardWidth = card.getBoundingClientRect().width;
+                const gap = parseFloat(window.getComputedStyle(workGrid).gap || 0);
+                return cardWidth + gap;
+            }
+            return window.innerWidth * 0.8;
+        };
+
+        // Arrow click events
+        if (btnNext) {
+            btnNext.addEventListener('click', () => {
+                workGrid.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
+        }
+
+        if (btnPrev) {
+            btnPrev.addEventListener('click', () => {
+                workGrid.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            });
+        }
+
+        // Progress bar synchronization
+        const updateProgressBar = () => {
+            if (progressBar) {
+                const maxScroll = workGrid.scrollWidth - workGrid.clientWidth;
+                if (maxScroll <= 0) {
+                    progressBar.style.width = '0%';
+                    return;
+                }
+                const scrollPercentage = (workGrid.scrollLeft / maxScroll) * 100;
+                progressBar.style.width = `${Math.min(100, Math.max(0, scrollPercentage))}%`;
+            }
+        };
+
+        // Event listeners for scroll and resizing
+        workGrid.addEventListener('scroll', updateProgressBar, { passive: true });
+        window.addEventListener('resize', updateProgressBar, { passive: true });
+
+        // Update progress bar on a slight delay when filter tabs are clicked
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Wait for .hide class toggle transition to complete
+                setTimeout(() => {
+                    updateProgressBar();
+                    // Scroll back to the beginning of the list when filters change
+                    workGrid.scrollTo({ left: 0, behavior: 'smooth' });
+                }, 350);
+            });
+        });
+
+        // Initialize progress bar width
+        setTimeout(updateProgressBar, 500);
+    }
 });
