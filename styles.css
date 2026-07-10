@@ -2459,9 +2459,14 @@ html.light-theme .tool-icon-notion { color: #000000 !important; }
 }
 
 .detail-item i,
-.detail-item svg.lucide {
-    color: var(--theme-accent);
+.detail-item svg.lucide,
+.detail-item svg.contact-icon-svg {
     flex-shrink: 0;
+}
+
+.detail-item svg.contact-icon-svg {
+    width: 24px;
+    height: 24px;
 }
 
 .detail-item div span {
