@@ -679,4 +679,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Protect images from being dragged or right-clicked for download
+    document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
 });
