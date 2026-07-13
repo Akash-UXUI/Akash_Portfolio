@@ -557,7 +557,7 @@ html.light-theme .hero-avatar-wrapper {
 .hero-avatar-3d-card {
     position: relative;
     width: 100%;
-    max-width: 480px;
+    max-width: 580px;
     aspect-ratio: 1;
     margin: 0 auto;
     display: flex;
