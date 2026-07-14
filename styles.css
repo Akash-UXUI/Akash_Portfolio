@@ -1797,6 +1797,28 @@ html.light-theme .floating-badge {
     flex-direction: column;
 }
 
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.experience-header .cv-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    height: fit-content;
+}
+
+@media (max-width: 768px) {
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
+
 .timeline-container {
     position: relative;
     margin-top: 5rem;
