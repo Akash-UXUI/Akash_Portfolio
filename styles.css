@@ -2912,8 +2912,8 @@ html.light-theme .tool-icon-notion { color: #000000 !important; }
 }
 
 .cs-main-img {
-    width: 90%;
-    max-width: 800px;
+    width: 95%;
+    max-width: 920px;
     margin: -2rem auto 4rem auto;
     border-radius: var(--card-radius);
     border: 1px solid rgba(255, 255, 255, 0.08);

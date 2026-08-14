@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "SSTech System Solutions — Website Redesign",
             subtitle: "Redesigning the official corporate website for modern B2B SaaS aesthetics and lead conversion",
             tags: ["Web Redesign", "B2B Enterprise Portal", "UX Design System"],
-            image: "assets/SStech Website Image..png",
+            image: "assets/SSTech_Casestudy.jpg",
             client: "SSTech System Solutions",
             role: "Lead Product Designer",
             timeline: "10 Months (2025 - 2026)",
