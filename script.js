@@ -318,6 +318,32 @@ document.addEventListener('DOMContentLoaded', () => {
                     desc: "Self-explanatory course onboarding guides reduced student dashboard support tickets by 40%."
                 }
             ]
+        },
+        sstech: {
+            title: "SSTech System Solutions — Website Redesign",
+            subtitle: "Redesigning the official corporate website for modern B2B SaaS aesthetics and lead conversion",
+            tags: ["Web Redesign", "B2B Enterprise Portal", "UX Design System"],
+            image: "assets/SStech Website Image..png",
+            client: "SSTech System Solutions",
+            role: "Lead Product Designer",
+            timeline: "10 Months (2025 - 2026)",
+            challenge: "The official SSTech corporate website suffered from outdated visual aesthetics, inconsistent layout styling, and unstructured service page layouts, resulting in low B2B engagement and slow developer handoff times.",
+            research: "Through user research and competitor analysis, we mapped out that corporate leads sought clear technology stack indices, organized service offerings, and streamlined contact paths. Maintaining 100% design-to-code alignment was critical.",
+            solution: "Designed fully responsive, high-fidelity dark glassmorphic layouts, customized tech stack visuals, and built a comprehensive Figma auto-layout library mapped directly to developer styles to ensure rapid dev cycles.",
+            outcomes: [
+                {
+                    title: "Increased User Engagement",
+                    desc: "Interactive visual flows and restructured journeys contributed to a 5x increase in target user session duration."
+                },
+                {
+                    title: "Optimized Developer Cycles",
+                    desc: "Scalable design systems and component-driven Figma handoffs cut down UI dev coding time by 40%."
+                },
+                {
+                    title: "Improved Lead Inquiries",
+                    desc: "Re-architected service categories and CTA placements transformed the website into a high-converting B2B tool."
+                }
+            ]
         }
     };
 
