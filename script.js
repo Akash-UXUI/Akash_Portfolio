@@ -272,7 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle: "A modern approach to multi-asset banking, billing, and expenses tracking",
             tags: ["Fintech App", "iOS UI Design", "Micro-interactions"],
             image: "assets/Final_Wallet Case Study.png",
-            client: "PayArc Financiers",
+            clientLabel: "Company",
+            client: "In-house Product",
             role: "Senior Product Designer",
             timeline: "4 Months (2025)",
             challenge: "Traditional mobile banking apps suffer from cluttered layouts, confusing charge descriptions, and separate card management screens, causing friction for daily transaction tracking.",
@@ -368,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     <div class="cs-meta">
                         <div class="cs-meta-item">
-                            <span>Client</span>
+                            <span>${data.clientLabel || 'Client'}</span>
                             <p>${data.client}</p>
                         </div>
                         <div class="cs-meta-item">
