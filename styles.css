@@ -2848,7 +2848,6 @@ html.light-theme .tool-icon-notion { color: #000000 !important; }
 .cs-hero {
     padding: 6rem 4rem 3rem 4rem;
     background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
 }
 
