@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Fintech Wallet — Expense Tracker & Payment Hub",
             subtitle: "A modern approach to multi-asset banking, billing, and expenses tracking",
             tags: ["Fintech App", "iOS UI Design", "Micro-interactions"],
-            image: "assets/Wallet Case Study.png",
+            image: "assets/Final_Wallet Case Study.png",
             client: "PayArc Financiers",
             role: "Senior Product Designer",
             timeline: "4 Months (2025)",
