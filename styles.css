@@ -3608,9 +3608,6 @@ html.light-theme .theme-toggle-btn .moon-icon {
 }
 
 /* Light Theme Case Study Overrides */
-html.light-theme .cs-hero {
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-}
 
 html.light-theme .cs-meta {
     border-top: 1px solid rgba(15, 23, 42, 0.08);
